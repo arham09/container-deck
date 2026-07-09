@@ -1,0 +1,20 @@
+{
+  "containers" : {
+    "active" : 0,
+    "reclaimable" : 0,
+    "sizeInBytes" : 0,
+    "total" : 0
+  },
+  "images" : {
+    "active" : 0,
+    "reclaimable" : 657125376,
+    "sizeInBytes" : 657125376,
+    "total" : 1
+  },
+  "volumes" : {
+    "active" : 0,
+    "reclaimable" : 69390336,
+    "sizeInBytes" : 69390336,
+    "total" : 1
+  }
+}

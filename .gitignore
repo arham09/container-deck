@@ -1,0 +1,21 @@
+# macOS
+.DS_Store
+
+# SwiftPM build artifacts (includes the assembled ContainerDeck.app)
+.build/
+.swiftpm/
+
+# Xcode (if the package is opened in Xcode later)
+DerivedData/
+xcuserdata/
+*.xcworkspace/xcshareddata/swiftpm/configuration/
+
+# Debug symbols & profiling
+*.dSYM
+*.trace
+
+# Editor/tooling leftovers
+*.swp
+.vscode/
+
+logo.png

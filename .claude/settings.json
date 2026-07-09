@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(rtk swift *)",
+      "Bash(scripts/test.sh)",
+      "Bash(rtk find *)",
+      "Read(//Library/Developer/CommandLineTools/usr/lib/**)",
+      "Bash(scripts/make-app-bundle.sh)"
+    ]
+  }
+}

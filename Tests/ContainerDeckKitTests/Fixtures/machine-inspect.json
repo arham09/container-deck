@@ -1,0 +1,31 @@
+[
+  {
+    "containerId" : "cd-fixture-machine-9f5316",
+    "cpus" : 6,
+    "createdDate" : "2026-07-04T08:55:40Z",
+    "diskSize" : 78659584,
+    "homeMount" : "rw",
+    "id" : "cd-fixture-machine",
+    "image" : {
+      "descriptor" : {
+        "digest" : "sha256:14358309a308569c32bdc37e2e0e9694be33a9d99e68afb0f5ff33cc1f695dce",
+        "mediaType" : "application\/vnd.oci.image.index.v1+json",
+        "size" : 9218
+      },
+      "reference" : "docker.io\/library\/alpine:3.22"
+    },
+    "ipAddress" : "192.168.64.3",
+    "memory" : 12884901888,
+    "platform" : {
+      "architecture" : "arm64",
+      "os" : "linux"
+    },
+    "startedDate" : "2026-07-04T08:55:41Z",
+    "status" : "running",
+    "userSetup" : {
+      "gid" : 20,
+      "uid" : 502,
+      "username" : "arhamawalabiyan"
+    }
+  }
+]
