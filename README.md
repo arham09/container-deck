@@ -6,27 +6,17 @@ Built with SwiftUI, Swift 6 strict concurrency, and the Observation framework. N
 
 ## Status
 
-**All 7 phases complete (public beta)** — verified against Apple Container CLI **1.0.0**.
+Public beta — verified against Apple Container CLI **1.0.0**.
 
-| Area | State |
-|---|---|
-| System power (Turn On / Turn Off with verified state, kernel-install consent) | ✅ Phase 0 |
-| Binary discovery + onboarding when Apple Container is missing | ✅ Phase 0 |
-| Live operations popover, native Settings window | ✅ Phase 0 |
-| Read-only resource manager: Containers, Images, Volumes, Machines, Registries, Builder, Disk usage | ✅ Phase 1 |
-| Raw JSON inspect (collapsible tree, search, copy, save) | ✅ Phase 1 |
-| Container lifecycle (run/create/start/stop/kill/restart/delete/prune), run form, streaming logs, external terminal | ✅ Phase 2 |
-| Pull/tag/save/load/delete/prune images, streaming builds + history, builder lifecycle, registry login (stdin) | ✅ Phase 3 |
-| Volume create/delete/prune with confirmations; networks honestly plugin-gated | ✅ Phase 4 |
-| Machine create/boot/stop/delete, settings with pending-restart, default selection, one-shot commands, logs | ✅ Phase 5 |
-| Activity charts (verifiable metrics, bounded buffers), menu-bar extra with power control | ✅ Phase 6 |
-| Saved run configurations (versioned import/export), ⌘K palette, diagnostics export, persistent history, DMG packaging | ✅ Phase 7 |
+## Features
 
-See `implementation.md` for the full specification and `phase-0.md` … `phase-7.md` for the per-phase plans.
-
-### What you can do today
-
-Turn Apple Container on and off with verified state transitions; browse containers, images, volumes, machines, registries, builder status, and disk usage with search, sorting, persisted column preferences, and raw-JSON inspectors; run or create containers through a form with ports, environment (values always redacted), bind mounts, networks, resource limits, and a live command preview (⌘N); manage container lifecycles — start, stop, kill, restart, delete (force is explicit), prune — with confirmations; stream and search container or boot logs with follow/pause and save; and open a shell in a running container via your preferred terminal. Pull, tag, save, load, delete, and prune images; build images from a Dockerfile with streaming output, redacted build args, and a persisted build history; manage the BuildKit builder; and log in to registries with the password sent strictly over stdin. Create volumes (with optional size and labels), delete them with a permanent-data-loss confirmation, and prune unreferenced ones — network management stays capability-gated until the container-network plugin is installed, and the app says exactly that. Create Linux machines (image, CPUs, memory, home-mount mode, no-boot), boot/stop/delete them, change settings with an explicit pending-restart state (never a silent restart), pick the default machine, run one-shot commands, and stream machine or boot logs. Watch running-resource and disk-usage charts in Activity (sampling only while visible, bounded to five minutes — per-container CPU/memory charts stay gated until the CLI's `stats` command emits data), and control everything from the optional menu-bar item, which shares the app's single source of state. Save run configurations (env values stripped, versioned import/export), summon any action with the ⌘K palette, export previewed-and-redacted diagnostics, and package a distributable DMG with `scripts/package-release.sh`. Every long-running action shows live progress in the operations popover while it runs, with a Cancel control where stopping is safe.
+- **System power** — turn Apple Container on and off with verified state transitions and explicit kernel-install consent; binary discovery with honest onboarding when it isn't installed (mock mode runs the full UI offline).
+- **Containers** — browse with search and a raw-JSON inspector; run or create through a form with ports, environment (values always redacted), bind mounts, networks, resource limits, and a live command preview (⌘N); start, stop, kill, restart, delete (force is explicit), and prune with confirmations; stream and search container or boot logs with follow/pause and save; open a shell in a running container via your preferred terminal.
+- **Images & registries** — pull, tag, save, load, delete, and prune; build from a Dockerfile with streaming output, redacted build args, and a build history; manage the BuildKit builder; log in to registries with the password sent strictly over stdin.
+- **Volumes & networks** — create volumes with optional size and labels, delete them with a permanent-data-loss confirmation, and prune unreferenced ones; network management stays capability-gated until the container-network plugin is installed, and the app says exactly why.
+- **Linux machines** — create (image, CPUs, memory, home-mount mode, no-boot), boot/stop/delete, change settings with an explicit pending-restart state (never a silent restart), pick the default machine, run one-shot commands, and stream machine or boot logs.
+- **Activity & menu bar** — running-resource and disk-usage charts sampled only while visible and bounded to five minutes (per-container CPU/memory stays gated until the CLI's `stats` command emits data); an optional menu-bar item that shares the app's single source of state.
+- **Everywhere** — saved run configurations (env values stripped, versioned import/export), a ⌘K command palette, previewed-and-redacted diagnostics export, and a live operations popover showing in-flight progress with a Cancel control where stopping is safe. Package a distributable DMG with `scripts/package-release.sh`.
 
 ## Requirements
 
