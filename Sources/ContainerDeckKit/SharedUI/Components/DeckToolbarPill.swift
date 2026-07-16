@@ -9,11 +9,14 @@ import SwiftUI
 /// neutral otherwise) and brightens on hover so it reads as an interactive
 /// toggle rather than a flat label.
 ///
-/// Rendered as a custom tappable element rather than a `Button`: AppKit draws
-/// its own rounded background/hover highlight behind any button placed in a
-/// toolbar item, which nested a second shape behind our capsule. A plain
-/// tappable view leaves only the one capsule; click and VoiceOver activation
-/// are wired explicitly.
+/// Rendered as a custom tappable element rather than a `Button` so AppKit
+/// doesn't add a button hover highlight; click and VoiceOver activation are
+/// wired explicitly.
+///
+/// This draws one capsule. On macOS 26 Tahoe the *toolbar item* also gets an
+/// automatic Liquid Glass capsule background — which stacked a second, offset
+/// shape behind ours — so `RootView` suppresses it with
+/// `.sharedBackgroundVisibility(.hidden)` on the item.
 public struct DeckToolbarPill: View {
     @Environment(AppEnvironment.self) private var env
     @State private var hovering = false

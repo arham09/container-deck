@@ -25,8 +25,18 @@ public struct RootView: View {
             await env.resources.refreshAll()
         }
         .toolbar {
-            ToolbarItem(placement: .navigation) {
-                DeckToolbarPill()
+            // On macOS 26 Tahoe every toolbar item gets an automatic Liquid Glass
+            // capsule background; the pill draws its own tinted capsule, so hide the
+            // system one to avoid two overlapping shapes. macOS 15 has no such glass.
+            if #available(macOS 26.0, *) {
+                ToolbarItem(placement: .navigation) {
+                    DeckToolbarPill()
+                }
+                .sharedBackgroundVisibility(.hidden)
+            } else {
+                ToolbarItem(placement: .navigation) {
+                    DeckToolbarPill()
+                }
             }
             ToolbarItem {
                 Button {
